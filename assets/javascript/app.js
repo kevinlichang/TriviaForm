@@ -9,54 +9,55 @@ $(document).ready(function () {
   function displayQuestions() {
 
     for (var i = 0; i < questionSet.length; i++) {
-      // variables to create div. add text and append to html
+      // variables to create div add text and append to html
       var questionDiv = $("<div>");
-      questionDiv.text(questionSet[i].question);
-      $("#quiz-questions").append(questionDiv);
+
+      var questionText = $("<h4>");
+      questionText.text(questionSet[i].question);
+      questionDiv.append(questionText);
 
       // function to create radio inputs and labels for multiple choice
       // add attribute type=radio, name, and value as the answer.
-      function addInput(data) {
-        var choicesInput = $("<input>");
-        choicesInput
-          .attr({type: "radio", name: i, value: data})
-          .appendTo("#quiz-questions");
 
-        var choicesLabel = $("<label>");
 
-        choicesLabel.text(data);
-        $("#quiz-questions").append(choicesLabel);
+      for (var y = 0; y < questionSet[i].choicesArray.length; y++) {
+        
+        var radioDiv = $("<div>");
+  
+        var radioInput = $("<input>");
+        radioInput.attr({type: "radio", name: i, value: questionSet[i].choicesArray[y]})
+        var labels = $("<label>");
+        labels.text(questionSet[i].choicesArray[y]);
 
+        radioDiv.append(radioInput, labels);
+        questionDiv.append(radioDiv);
       };
 
-      // Run addInput function to add 4 multiple choices for each question
-      addInput(questionSet[i].choicesArray[0]);
-      addInput(questionSet[i].choicesArray[1]);
-      addInput(questionSet[i].choicesArray[2]);
-      addInput(questionSet[i].choicesArray[3]);
-
+      $("form").append(questionDiv);
     };
-
   };
 
 
-
-  // function to show questions on button start click
+  // function to show questions on *START* button click
   $("#start-button").click(function () {
+    
     // hide start screen
     $("#start-screen").attr("style", "display: none");
 
     // show #quiz-container
     $("#quiz-container").removeAttr("style");
 
-    // show questions and choices
     displayQuestions();
 
+    // start timer display and set window timer
+    timeReset();
+    timeStart();
+    setWindowTimer();
   });
 
 
-  // function to check answers and show results 
 
+  // function to check answers and show results 
   function checkAnswers() {
     //created variables to acquire value of checked radio inputs
     var checkedAnsValues = [
@@ -65,15 +66,9 @@ $(document).ready(function () {
       $('input[name="2"]:checked').val(),
       $('input[name="3"]:checked').val(),
       $('input[name="4"]:checked').val(),
-      $('input[name="5"]:checked').val()
+      $('input[name="5"]:checked').val(),
+      $('input[name="6"]:checked').val()      
     ];
-    console.log(checkedAnsValues);
-
-    // if there is unanswered and time remaining 
-    if (checkedAnsValues.includes(undefined) === true) {
-      alert("You have not answered all the questions.")
-      return false
-    }
 
 
     // check the checked answer value with the answer in questionSet array
@@ -89,31 +84,31 @@ $(document).ready(function () {
         incorrectCount++;
       };
     };
-    console.log("unanswered: " + unanswered);
-
 
     // hide quiz container and show results 
     $("#quiz-container").attr("style", "display: none");
     $("#results-container").removeAttr("style");
 
-    // write results to the results div
-    
+    // write results to the results div  
     $("#correctAns").text("Questions you got correct: " + correctCount);
     $("#wrongAns").text("Questions you got wrong: " + incorrectCount);
+
     if (unanswered > 0) {
       $("#unanswered").text("Questions you missed: " + unanswered);
     };
   };
 
 
-  // on click function for finished button to run checkAnswers()
+  // on click function for ** button to run checkAnswers()
   $("#finished-button").click(function() {
     checkAnswers();
-    
+    timeStop();
+    stopWindowTimer();
+        
   });
 
-
-  // function to reset
+  ///////////////////////////////////
+  // function to reset the page to start screen
   $("#reset-button").click(function() {
 
     // show start screen and hide results screen
@@ -128,43 +123,53 @@ $(document).ready(function () {
     // remove quiz-questions contents
     $("#quiz-questions").empty();
     timeReset();
-
   });
 
 
 
-  // Need to create timer to display
+  ////////////////// Create timer to display
   // variables for time
-  var timeLeft = 60;
+  var timeLeft = 120;
+  var windowTimer;
+
+  function setWindowTimer() {
+    windowTimer = setTimeout(function() {
+      timeStop();
+      checkAnswers();
+      alert("Times Up");
+    }, 
+    120000);
+  };
+
+  function stopWindowTimer() {
+    clearTimeout(windowTimer);
+  };
 
   function timeReset() {
-   time = 0;
+   timeLeft = 120;
 
-   $("#show-timer").text("01:00");
+   $("#show-timer").text("02:00");
 
   };
 
   function timeStart() {
     intervalId = setInterval(countdown, 1000);
-  }
+  };
 
   function timeStop() {
 
     console.log("stopping");
     clearInterval(intervalId);
 
-  }
-
-
-
+  };
 
   function countdown() {
 
-    time--;
-    var converted = timeConverter(time);
+    timeLeft--;
+    var converted = timeConverter(timeLeft);
     $("#show-timer").text(converted);
 
-  }
+  };
 
   function timeConverter(t) {
 
@@ -173,16 +178,15 @@ $(document).ready(function () {
 
     if (seconds < 10) {
       seconds = "0" + seconds;
-    }
+    };
 
     if (minutes === 0) {
     minutes = "00";
-    } else if (minutes < 10) 
+    } else if (minutes < 10) {
       minutes = "0" + minutes;
-    }
-
+    };
     return minutes + ":" + seconds;
-// }
+  };
 
 
   

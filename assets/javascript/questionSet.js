@@ -1,8 +1,9 @@
-var questionSet = [{
-  question: "What was the first movie released in the Marvel Cinematic Universe?",
-  answer: "Iron Man",
-  choicesArray: ["Incredible Hulk", "Captain America", "Spiderman", "Iron Man"]
-}, {
+var questionSet = [
+  {
+    question: "What was the first movie released in the Marvel Cinematic Universe?",
+    answer: "Iron Man",
+    choicesArray: ["Incredible Hulk", "Captain America", "Spiderman", "Iron Man"]
+  }, {
   question: "Who starred as a genius character in Good Will Hunting?",
   answer: "Matt Damon",
   choicesArray: ["Matt Damon", "Ben Affleck", "Robin Williams", "Kevin Costner"]
@@ -23,8 +24,9 @@ var questionSet = [{
   answer: "Dr. No",
   choicesArray: ["Goldfinger", "From Russia with Love", "Dr. No", "You Only Live Twice"]
 }, {
-  question: "Which actor has been in a Star Wars movie?",
-  answer: "Daniel Craig",
-}
+  question: "Which actor has not been in a Star Wars movie?",
+  answer: "Rainn Wilson",
+  choicesArray: ["Daniel Craig", "Rainn Wilson", "Joel Edgerton", "Warwick Davis"]
+}, 
 ];
 
