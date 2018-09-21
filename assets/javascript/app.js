@@ -18,10 +18,9 @@ $(document).ready(function () {
       // add attribute type=radio, name, and value as the answer.
       function addInput(data) {
         var choicesInput = $("<input>");
-        choicesInput.attr("type", "radio");
-        choicesInput.attr("name", questionSet[i].questNumber);
-        choicesInput.attr("value", data);
-        $("#quiz-questions").append(choicesInput);
+        choicesInput
+          .attr({type: "radio", name: i, value: data})
+          .appendTo("#quiz-questions");
 
         var choicesLabel = $("<label>");
 
@@ -101,7 +100,9 @@ $(document).ready(function () {
     
     $("#correctAns").text("Questions you got correct: " + correctCount);
     $("#wrongAns").text("Questions you got wrong: " + incorrectCount);
-    $("#unanswered").text("Questions you missed: " + unanswered);
+    if (unanswered > 0) {
+      $("#unanswered").text("Questions you missed: " + unanswered);
+    };
   };
 
 
