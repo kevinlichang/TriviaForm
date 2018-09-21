@@ -79,6 +79,12 @@ $(document).ready(function () {
     ];
     console.log(checkedAnsValues);
 
+    // if there is unanswered and time remaining 
+    if (checkedAnsValues.includes(undefined) === true) {
+      alert("You have not answered all the questions.")
+      return false
+    }
+
 
     // checked the checked answer value with the answer in questionSet array
     // increase correctCount and incorrect Count based on comparison
@@ -86,33 +92,54 @@ $(document).ready(function () {
     for (var i = 0; i < questionSet.length; i++) {
       if (checkedAnsValues[i] === questionSet[i].answer) {
         correctCount++;
-        
-      } else if (checkedAnsValues[i] !== questionSet[i].answer) {
+      } else if (checkedAnsValues[i] === undefined) {
+        unanswered++;
+      
+      } else if (checkedAnsValues[i] !== questionSet[i].answer ) {
         incorrectCount++;
-      }
+      };
     };
-    console.log("Correct: " + correctCount);
-    console.log("Incorrect: " + incorrectCount);
-    $("#correctAns").text("Questions you got correct: " + correctCount);
-    $("#wrongAns").text("Questions you got wrong: " + incorrectCount);
-  };
+    console.log("unanswered: " + unanswered);
 
-  $("#finished-button").click(function () {
-    // hide quiz container
+
+    // hide quiz container and show results 
     $("#quiz-container").attr("style", "display: none");
     $("#results-container").removeAttr("style");
 
-    checkAnswers();
-
+    // write results to the results div
     
+    $("#correctAns").text("Questions you got correct: " + correctCount);
+    $("#wrongAns").text("Questions you got wrong: " + incorrectCount);
+    $("#unanswered").text("Questions you missed: " + unanswered);
+  };
 
 
-
-
+  // on click function for finished button to run checkAnswers()
+  $("#finished-button").click(function() {
+    checkAnswers();
+    
   });
-  // click function for submit button
-
-
 
   // function to reset
+  $("#reset-button").click(function() {
+
+    // show start screen and hide results screen
+    $("#results-container").attr("style", "display: none");
+    $("#start-screen").removeAttr("style");
+
+    // reset counters to 0
+    correctCount = 0;
+    incorrectCount = 0;
+    unanswered = 0;
+
+    // remove quiz-questions contents
+    $("#quiz-questions").empty();
+
+  });
+
+
+  
+
+
+
 });
