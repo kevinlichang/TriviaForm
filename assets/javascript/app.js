@@ -5,7 +5,7 @@ $(document).ready(function () {
   var unanswered = 0;
 
 
-
+  // create questions in quiz-questions
   function displayQuestions() {
 
     for (var i = 0; i < questionSet.length; i++) {
@@ -42,9 +42,6 @@ $(document).ready(function () {
 
 
 
-
-
-
   // function to show questions on button start click
   $("#start-button").click(function () {
     // hide start screen
@@ -56,15 +53,7 @@ $(document).ready(function () {
     // show questions and choices
     displayQuestions();
 
-
-
   });
-
-
-
-
-  // function to create timer
-
 
 
   // function to check answers and show results 
@@ -86,7 +75,7 @@ $(document).ready(function () {
     }
 
 
-    // checked the checked answer value with the answer in questionSet array
+    // check the checked answer value with the answer in questionSet array
     // increase correctCount and incorrect Count based on comparison
 
     for (var i = 0; i < questionSet.length; i++) {
@@ -120,6 +109,7 @@ $(document).ready(function () {
     
   });
 
+
   // function to reset
   $("#reset-button").click(function() {
 
@@ -134,8 +124,62 @@ $(document).ready(function () {
 
     // remove quiz-questions contents
     $("#quiz-questions").empty();
+    timeReset();
 
   });
+
+
+
+  // Need to create timer to display
+  // variables for time
+  var timeLeft = 60;
+
+  function timeReset() {
+   time = 0;
+
+   $("#show-timer").text("01:00");
+
+  };
+
+  function timeStart() {
+    intervalId = setInterval(countdown, 1000);
+  }
+
+  function timeStop() {
+
+    console.log("stopping");
+    clearInterval(intervalId);
+
+  }
+
+
+
+
+  function countdown() {
+
+    time--;
+    var converted = timeConverter(time);
+    $("#show-timer").text(converted);
+
+  }
+
+  function timeConverter(t) {
+
+    var minutes = Math.floor(t / 60);
+    var seconds = t - (minutes * 60);
+
+    if (seconds < 10) {
+      seconds = "0" + seconds;
+    }
+
+    if (minutes === 0) {
+    minutes = "00";
+    } else if (minutes < 10) 
+      minutes = "0" + minutes;
+    }
+
+    return minutes + ":" + seconds;
+// }
 
 
   
