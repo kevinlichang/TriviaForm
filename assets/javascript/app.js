@@ -64,7 +64,9 @@ $(document).ready(function () {
       $('input[name="0"]:checked').val(),
       $('input[name="1"]:checked').val(),
       $('input[name="2"]:checked').val(),
-      $('input[name="3"]:checked').val()
+      $('input[name="3"]:checked').val(),
+      $('input[name="4"]:checked').val(),
+      $('input[name="5"]:checked').val()
     ];
     console.log(checkedAnsValues);
 

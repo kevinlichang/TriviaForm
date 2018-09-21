@@ -18,6 +18,16 @@ var questionSet = [{
   questNumber: 3,
   answer: "Sicario",
   choicesArray: ["Spotlight", "American Hustle", "Zodiac", "Sicario"]
+}, {
+  question: "Which actor was originally offered the role of main character in Elysium?",
+  questNumber: 4,
+  answer: "Eminem",
+  choicesArray: ["Eminem", "Leonardo Dicaprio", "Adrien Brody", "Keanu Reeves"]
+}, {
+  question: "Which one is the first James Bond film to be produced?",
+  questNumber: 5,
+  answer: "Dr. No",
+  choicesArray: ["Goldfinger", "From Russia with Love", "Dr. No", "You Only Live Twice"]
 }
 ];
 
