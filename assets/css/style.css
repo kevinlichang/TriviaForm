@@ -13,7 +13,14 @@ h1 {
   font-size: 5em;
   margin: 20px auto;
   font-family: 'Shadows Into Light', cursive;
+}
 
+h4 {
+  margin: 20px auto;
+}
+
+h5 {
+  margin-top: 27px;
 }
 
 button {
@@ -23,7 +30,7 @@ button {
   border-radius: 8px;
   border-style: solid;
   padding: 5px 40px;
-  margin: 10px auto;
+  margin: 15px auto;
 
 }
 
@@ -33,17 +40,37 @@ button:hover {
   color: rgb(61, 61, 61);
 }
 
+label {
+  margin-left: 5px;
+}
+
+.result {
+  margin: 10px auto;
+  font-size: 1.3em;
+}
 #start-screen {
   text-align: center;
 }
 
 #show-timer {
-  font-size: 3em;
+  font-size: 2.5em;
   text-align: center;
   border-bottom-style: groove;
   margin: 5px auto;
 }
+#time-remaining {
+  text-align: center;  
+  margin-top: 20px;
+  border-top-style: ridge;
+}
+
 
 #results-container {
   text-align: center;
+}
+
+#results-title {
+  font-size: 2.5em;
+  margin: 20px auto;
+  border-bottom-style: groove;
 }

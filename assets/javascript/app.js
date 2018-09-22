@@ -12,7 +12,7 @@ $(document).ready(function () {
       // variables to create div add text and append to html
       var questionDiv = $("<div>");
 
-      var questionText = $("<h4>");
+      var questionText = $("<h5>");
       questionText.text(questionSet[i].question);
       questionDiv.append(questionText);
 
