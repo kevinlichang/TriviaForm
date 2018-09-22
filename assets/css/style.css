@@ -1,11 +1,11 @@
 body {
-  background-image: url("../images/film-bg.jpeg");
+  background-image: url("../images/film-v2.jpg");
   color: rgb(61, 61, 61);
   font-family: 'Roboto Slab', serif;
 }
 
 .container {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.91);
 
 }
 

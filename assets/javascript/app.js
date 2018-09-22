@@ -67,7 +67,12 @@ $(document).ready(function () {
       $('input[name="3"]:checked').val(),
       $('input[name="4"]:checked').val(),
       $('input[name="5"]:checked').val(),
-      $('input[name="6"]:checked').val()      
+      $('input[name="6"]:checked').val(),  
+      $('input[name="7"]:checked').val(),  
+      $('input[name="8"]:checked').val(),
+      $('input[name="9"]:checked').val(),
+      $('input[name="10"]:checked').val(),      
+      $('input[name="11"]:checked').val()      
     ];
 
 
@@ -137,7 +142,7 @@ $(document).ready(function () {
     windowTimer = setTimeout(function() {
       timeStop();
       checkAnswers();
-      alert("Times Up");
+      alert("Times Up!");
     }, 
     120000);
   };
