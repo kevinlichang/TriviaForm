@@ -122,6 +122,7 @@ $(document).ready(function () {
 
     // remove quiz-questions contents
     $("#quiz-questions").empty();
+    $("#unanswered").empty();
     timeReset();
   });
 

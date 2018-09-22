@@ -1,8 +1,49 @@
 body {
   background-image: url("../images/film-bg.jpeg");
+  color: rgb(61, 61, 61);
+  font-family: 'Roboto Slab', serif;
 }
 
 .container {
-  background-color: rgba(255, 255, 255, 0.83);
+  background-color: rgba(255, 255, 255, 0.9);
 
+}
+
+h1 {
+  font-size: 5em;
+  margin: 20px auto;
+  font-family: 'Shadows Into Light', cursive;
+
+}
+
+button {
+  background-color: rgb(61, 61, 61);
+  color: white;
+  font-size: 24px;
+  border-radius: 8px;
+  border-style: solid;
+  padding: 5px 40px;
+  margin: 10px auto;
+
+}
+
+button:hover {
+  border-color: rgb(61, 61, 61);
+  background-color: transparent;
+  color: rgb(61, 61, 61);
+}
+
+#start-screen {
+  text-align: center;
+}
+
+#show-timer {
+  font-size: 3em;
+  text-align: center;
+  border-bottom-style: groove;
+  margin: 5px auto;
+}
+
+#results-container {
+  text-align: center;
 }
