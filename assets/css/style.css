@@ -4,12 +4,8 @@ body {
   font-family: 'Roboto Slab', serif;
 }
 
-.container {
-  padding: 0 25px;
-
-}
 .white-bg {
-  width: 82%;
+  width: 75%;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.91); 
 }
@@ -62,6 +58,7 @@ label {
   text-align: center;
   border-bottom-style: groove;
   margin: 5px auto;
+
 }
 #time-remaining {
   text-align: center;  
@@ -69,6 +66,19 @@ label {
   border-top-style: ridge;
 }
 
+#timer-header {
+  background: white;
+}
+
+.fixed-timer {
+  position: fixed;
+  top: 0;
+  width: 72%;
+}
+
+.fixed-timer + #quiz-questions {
+  padding-top: 60px;
+}
 
 #results-container {
   text-align: center;

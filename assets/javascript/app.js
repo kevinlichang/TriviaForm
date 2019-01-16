@@ -194,9 +194,19 @@ $(document).ready(function () {
     return minutes + ":" + seconds;
   };
 
+  // fixed timer
+  var stickyTimer = $("#timer-header").offset().top;
 
-  
+  $(window).scroll(function () {
+    var currentScroll = $(window).scrollTop();
 
+    if (currentScroll > stickyTimer) {
+      $("#timer-header").addClass("fixed-timer");
+    } else {
+      $("#timer-header").removeClass("fixed-timer");
+    }
+
+  })
 
 
 });
