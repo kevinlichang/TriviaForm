@@ -1,6 +1,6 @@
 # Movie Trivia
 
-![Trivia Form Questions](./assets/images/Capture.PNG)
+![Trivia Form Questions](./assets/images/Capture.png)
 
 ## [Live Site](https://kevinlichang.github.io/TriviaForm/) 
 
