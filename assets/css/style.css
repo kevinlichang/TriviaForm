@@ -73,7 +73,8 @@ label {
 .fixed-timer {
   position: fixed;
   top: 0;
-  width: 72%;
+  width: 71%;
+  max-width: 1110px;
 }
 
 .fixed-timer + #quiz-questions {
